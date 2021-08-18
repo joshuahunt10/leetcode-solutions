@@ -13,9 +13,10 @@ Constraints:
  * @return {number[][]}
  */
  var merge = function(intervals) {
+    // edgecases
     if(intervals.length === 0) return [];
     if(intervals.length === 1) return intervals;
-    //sort it
+    //sort it so the mins are all in order.
     intervals.sort((a,b) => {
         return a[0]-b[0];
     })
@@ -26,14 +27,18 @@ Constraints:
     for(let i = 0; i < intervals.length; i++) {
         let compare = holder[holder.length - 1];
         let current = intervals[i]
+        // Compare the max of the low end to the min of the next one. If it is greater than there is overlap
         if(compare[1] >= current[0]) {
+            // Get the max of the two array max's and set that for the current array we're building
             compare[1] = Math.max(compare[1], current[1])
         } else {
+            // otherwise just push the current one we're comparing
             holder.push(current)
         }
     }
     return holder;
 };
+// [[0,3], [1,4], [8,10]]
 
 /*
 sort the arrays based on the zero elements

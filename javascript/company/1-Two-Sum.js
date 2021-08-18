@@ -30,3 +30,14 @@ Constraints:
         }
     }
 };
+
+/*
+for letters
+We can do this type of loop that iterates through.
+Each string will then be checked to be includes in the wordDict
+Add that string to a holder dictionary
+Value of i = j -1 and break (cause the outerloop will increment i++ and we want it to be at the spot the last word was found)
+continue on the loop to find all the words.
+Compare the lengths of the holderDict and wordDict
+    if holderDict.length < wordDict return false
+*/

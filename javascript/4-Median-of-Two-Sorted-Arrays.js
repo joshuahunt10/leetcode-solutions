@@ -27,6 +27,8 @@ Constraints:
         return sortMe[Math.floor(middle)];
     }
 };
+// [1, 2, 3]
+// [1, 2, 3, 4]
 
 /*
 Don't forget arrays are base 0!!

@@ -8,6 +8,40 @@ Constraints:
 
 */
 
+/*
+LESS OPTIMIZED
+*/
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ var lengthOfLongestSubstring = function(s) {
+    if(s.length === 0) return 0;
+    if(s.length === 1) return 1;
+
+    let holderStr = "";
+    let longest = 0;
+
+    for(let i=0; i < s.length; i++) {
+        if(longest < holderStr.length) {
+            longest = holderStr.length
+        }
+        let start = s[i];
+        holderStr = start;
+        for(let j = i + 1; j < s.length; j++) {
+            let end = s[j];
+            if(holderStr.includes(end)) {
+                break;
+            } else {
+                holderStr = holderStr + end
+                continue;
+            }
+        }
+    }
+    return longest;
+};
+
+
 /**
  * @param {string} s
  * @return {number}
