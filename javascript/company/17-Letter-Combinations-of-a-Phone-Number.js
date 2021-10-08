@@ -47,9 +47,9 @@ Constraints:
             let letter = numArrToAdd[j];
             // Go through the items in the holder
             for(let k = 0; k < holder.length; k++) {
-                let holderLetter = holder[k];
+                let holderStr = holder[k];
                 // combine them
-                temp.push(holderLetter + letter)
+                temp.push(holderStr + letter)
             }
         }
         // replace the holder with the temp so we don't have the single letter initializers to start with.

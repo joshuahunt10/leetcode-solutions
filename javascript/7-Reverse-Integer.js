@@ -13,7 +13,6 @@ Constraints:
  * @return {number}
  */
  var reverse = function(x) {
-    let isNeg = false;
     let revNum = 0;
     // Must be a string to use split;
     revNum = parseInt((Math.abs(x)).toString().split("").reverse().join(""));

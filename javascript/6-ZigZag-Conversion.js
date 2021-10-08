@@ -24,22 +24,25 @@ string convert(string s, int numRows);
  * @return {string}
  */
  var convert = function(s, numRows) {
-    let t = 0;
+    let fullRowFillCounter = 0;
     let col = numRows - 1;
     let strings = [];
     for(let i = 0; i < s.length; i++) {
         let currLetter = s[i]
+        // initializes our nested arrays
         if(strings.length < numRows) {
             strings.push([currLetter]);
             continue;
         }
         if(col === 1) {
             // Add a letter to each of the nested arrays
-            strings[t].push(currLetter)
-            t++;
-            if(t >= strings.length) {
+            strings[fullRowFillCounter].push(currLetter)
+            fullRowFillCounter++;
+            // instead of strings.length can be numRows
+            if(fullRowFillCounter >= strings.length) {
+                //reset to be able to make zig-zags
                 col = numRows - 1;
-                t = 0;
+                fullRowFillCounter = 0;
             }
             continue;
         }
@@ -48,16 +51,12 @@ string convert(string s, int numRows);
             --col;
             continue;
         }
-        for(let j = 0; j < strings.length; j++){
-            let subArr = strings[j];
-            subArr.push(currLetter)
-        }
-        iter = numRows - 1;
     }
 
     return strings.flat().join("")
 };
 
+console.log('output', convert("PAYPALISHIRING", 3))
 /*
 one letter on each line,
 then 1 letter on each line up to 1

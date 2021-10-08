@@ -15,7 +15,6 @@ Constraints:
  */
  var smallerNumbersThanCurrent = function(nums) {
     const sortedNums = nums.slice().sort((a,b) => a-b);
-    console.log(sortedNums)
     return nums.map(num => sortedNums.indexOf(num))
 };
 
